@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
+from django.db import migrations, models
 import provider.utils
 from django.conf import settings
 
@@ -21,9 +21,6 @@ class Migration(migrations.Migration):
                 ('expires', models.DateTimeField()),
                 ('scope', models.IntegerField(default=2, choices=[(2, b'read'), (4, b'write'), (6, b'read+write')])),
             ],
-            options={
-            },
-            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Client',
@@ -37,9 +34,6 @@ class Migration(migrations.Migration):
                 ('client_type', models.IntegerField(choices=[(0, b'Confidential (Web applications)'), (1, b'Public (Native and JS applications)')])),
                 ('user', models.ForeignKey(related_name='oauth2_client', blank=True, to=settings.AUTH_USER_MODEL, null=True)),
             ],
-            options={
-            },
-            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Grant',
@@ -52,9 +46,6 @@ class Migration(migrations.Migration):
                 ('client', models.ForeignKey(to='oauth2.Client')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-            },
-            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='RefreshToken',
@@ -66,20 +57,15 @@ class Migration(migrations.Migration):
                 ('client', models.ForeignKey(to='oauth2.Client')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-            },
-            bases=(models.Model,),
         ),
         migrations.AddField(
             model_name='accesstoken',
             name='client',
             field=models.ForeignKey(to='oauth2.Client'),
-            preserve_default=True,
         ),
         migrations.AddField(
             model_name='accesstoken',
             name='user',
             field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
-            preserve_default=True,
         ),
     ]
