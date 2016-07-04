@@ -4,9 +4,9 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
+ADMINS = [
     ('Tester', 'test@example.com'),
-)
+]
 
 MANAGERS = ADMINS
 
@@ -48,7 +48,7 @@ SECRET_KEY = 'secret'
 
 ROOT_URLCONF = 'tests.urls'
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -58,5 +58,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'provider',
     'provider.oauth2',
-)
+]
 
