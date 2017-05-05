@@ -3,26 +3,30 @@
 from setuptools import setup, find_packages
 import provider
 
+# Running our own version as upstream seems to be abandoned.
 setup(
-    name='django-oauth2-provider',
+    name='django-oauth2-provider-unleashed',
     version=provider.__version__,
+    url='https://github.com/vikingco/django-oauth2-provider',
+    license='MIT',
     description='Provide OAuth2 access to your app',
     long_description=open('README.rst').read(),
     author='Alen Mujezinovic',
     author_email='alen@caffeinehit.com',
-    url = 'https://github.com/caffeinehit/django-oauth2-provider',
-    packages= find_packages(exclude=('tests*',)),
+    maintainer='Unleashed NV',
+    maintainer_email='operations@unleashed.be',
+    packages=find_packages(exclude=('tests*',)),
+    include_package_data=True,
+    zip_safe=False,
     classifiers=[
-        'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Operating System :: OS Independent',
+        'Environment :: Web Environment',
         'Framework :: Django',
     ],
     install_requires=[
-        "shortuuid>=0.3"
+        'shortuuid>=0.3',
     ],
-    include_package_data=True,
-    zip_safe=False,
 )
